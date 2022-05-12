@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="title">
+        <h1 class="bg-info">Now Playing <br> Movies <br> watch now!</h1>
+      </div>
+    </div>
+
+    <div *ngFor="let movie of moviesContainer" class="col-md-3">
+      <div class="position-relative">
+        <img [src]='"https://image.tmdb.org/t/p/w500" + movie.poster_path'
+        class="w-100"
+        alt=""
+        [routerLink] = "['/moviedetails', movie.id, movie.title]"
+        />
+        <h5>{{movie.title}}</h5>
+        <p class="vote bg-info">{{movie.vote_average}}</p>
+      </div>
+    </div>
+  </div>
+</div>

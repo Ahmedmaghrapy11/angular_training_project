@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Log In</h1>
+<form [formGroup]="loginForm">
+  <label>E-mail:</label>
+    <input formControlName="mail" type="email" class="form-control mb-3">
+    <p *ngIf="loginForm.controls['mail'].invalid && loginForm.controls['mail'].touched" class="text-danger">Error</p>
+
+    <label>Password:</label>
+    <input formControlName="pass" type="password" class="form-control mb-3">
+    <p *ngIf="loginForm.controls['pass'].invalid && loginForm.controls['pass'].touched" class="text-danger">Error</p>
+
+    <button [disabled]="loginForm.invalid && loginForm.touched" class="btn btn-info mb-5">Log in</button>
+</form>
+</div>

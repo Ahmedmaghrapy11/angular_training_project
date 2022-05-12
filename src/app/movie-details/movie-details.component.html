@@ -1,0 +1,23 @@
+<div>
+  <h3>{{singleMovieDetail.title}}</h3>
+</div>
+
+<div *ngIf="recieved; else alternate" class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div>
+        <img [src]='"https://image.tmdb.org/t/p/w500" + singleMovieDetail.poster_path' class="w-100"/>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div>
+        <h1>{{singleMovieDetail.title}}</h1>
+        <p>{{singleMovieDetail.overview}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #alternate>
+  <h1>No movies yet!</h1>
+</ng-template>

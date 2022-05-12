@@ -1,0 +1,35 @@
+<div class="container">
+
+  <h1>Registeration Form:</h1>
+
+  <form [formGroup]="form" (ngSubmit) = "handleFormData(form)">
+
+    <label>First name:</label>
+    <input formControlName="fName" type="text" class="form-control mb-3">
+    <p *ngIf="form.controls['fName'].invalid && form.controls['fName'].touched" class="text-danger">
+      <span *ngIf="form.controls['fName'].errors?.['minlength']">Please at least insert {{form.controls['first_name'].errors?.['minlength'].requiredLength}}</span>
+      <span *ngIf="form.controls['fName'].errors?.['pattern']">Please start with uppercase letter</span>
+    </p>
+
+    <label>Last name:</label>
+    <input formControlName="lName" type="text" class="form-control mb-3">
+    <p *ngIf="form.controls['lName'].invalid && form.controls['lName'].touched" class="text-danger">Error</p>
+
+    <label>Age:</label>
+    <input formControlName="age" type="number" class="form-control mb-3">
+    <p *ngIf="form.controls['age'].invalid && form.controls['first_name'].touched" class="text-danger">Error</p>
+
+    <label>E-mail:</label>
+    <input formControlName="mail" type="email" class="form-control mb-3">
+    <p *ngIf="form.controls['mail'].invalid && form.controls['mail'].touched" class="text-danger">Error</p>
+
+    <label>Password:</label>
+    <input formControlName="pass" type="password" class="form-control mb-3">
+    <p *ngIf="form.controls['pass'].invalid && form.controls['pass'].touched" class="text-danger">Error</p>
+
+    <button [disabled]="form.invalid && form.touched" class="btn btn-info mb-5">Register</button>
+
+    <h3 class="text-danger">{{msg}}</h3>
+
+  </form>
+</div>
